@@ -1,24 +1,19 @@
 import React from "react";
 
-import products from "./data/products";
-import Product from "./components/Product";
+import todosData from "./data/todosData";
+import TodoItem from "./components/TodoItem";
 
 import "./App.css";
 
-function getProductList() {
-  const productList = products.map((product) => (
-    <Product
-      key={product.id}
-      name={product.name}
-      price={product.price}
-      description={product.description}
-    />
+function getTodoList() {
+  const todoList = todosData.map((todo) => (
+    <TodoItem key={todo.id} todo={todo} />
   ));
-  return productList;
+  return todoList;
 }
 
 function App() {
-  return <div>{getProductList()}</div>;
+  return <div className="todo-list">{getTodoList()}</div>;
 }
 
 export default App;
