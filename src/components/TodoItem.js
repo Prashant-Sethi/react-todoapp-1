@@ -4,7 +4,13 @@ function TodoItem(props) {
   console.log(props);
   return (
     <li className="todo-item">
-      <input type="checkbox" name="" id="" checked={props.todo.completed} />
+      <input
+        type="checkbox"
+        name=""
+        id=""
+        checked={props.todo.completed}
+        onChange={() => console.log("I was changed")}
+      />
       <span>{props.todo.text}</span>
     </li>
   );
