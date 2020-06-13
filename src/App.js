@@ -13,12 +13,24 @@ class App extends Component {
     };
   }
 
-  getTodoList() {
+  getTodoList = () => {
     const todoList = this.state.todosData.map((todo) => (
-      <TodoItem key={todo.id} todo={todo} />
+      <TodoItem key={todo.id} todo={todo} handleChange={this.handleChange} />
     ));
     return todoList;
-  }
+  };
+
+  handleChange = (id) => {
+    this.setState((prevState) => {
+      const newTodoList = prevState.todosData.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      return { todosData: newTodoList };
+    });
+  };
 
   render() {
     return <div className="todo-list">{this.getTodoList()}</div>;

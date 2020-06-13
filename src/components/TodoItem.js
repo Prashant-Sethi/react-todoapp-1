@@ -9,7 +9,7 @@ function TodoItem(props) {
         name=""
         id=""
         checked={props.todo.completed}
-        onChange={() => console.log("I was changed")}
+        onChange={(e) => props.handleChange(props.todo.id)}
       />
       <span>{props.todo.text}</span>
     </li>
